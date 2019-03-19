@@ -6,4 +6,17 @@ module.exports = (app) => {
   }));
 
   app.get('/auth/google/callback', passport.authenticate('google'));
+
+  app.get('/auth/facebook', passport.authenticate('facebook'));
+  app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', { successRedirect: '/',
+                                      failureRedirect: '/login' }));
+
+  app.get('/api/current_user', (req, res) => {
+    res.send(req.user);
+  });
+
+  app.get('/api/logout', (req, res) => {
+    req.logout();
+  });
 }
