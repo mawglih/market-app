@@ -9,22 +9,13 @@ class Header extends Component {
       case null:
         return <h4>Loading ...</h4>;
       case false:
-        return (
-          <li>
-            <Link to="/auth/google">Login with Google</Link>
-          </li>
-        );
+        return <li><Link to="/auth/google">Login with Google</Link></li>;
       default:
-        return (
-          <li>
-            <Link to="/api/logout">Logout</Link>
-          </li>
-        );
+        return<li><Link to="/api/logout">Logout</Link></li>;
     }
   }
   render() {
     const { auth } = this.props;
-    console.log("auth in header: ", auth);
     return(
       <nav>
         <div className="nav-wrapper">
