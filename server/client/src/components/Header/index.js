@@ -35,9 +35,6 @@ class Header extends Component {
             Logo
           </Link>
           <ul id="nav-mobile" className="right">
-            {/* <li><a href="/">Login with Google</a></li>
-            <li><a href="/">Components</a></li>
-            <li><a href="/">JavaScript</a></li> */}
             {this.renderContent()}
           </ul>
         </div>
