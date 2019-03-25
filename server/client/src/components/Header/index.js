@@ -1,6 +1,7 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Checkout from '../Checkout';
 
 class Header extends Component {
   renderContent() {
@@ -11,7 +12,21 @@ class Header extends Component {
       case false:
         return <li><Link to="/auth/google">Login with Google</Link></li>;
       default:
-        return<li><Link to="/api/logout">Logout</Link></li>;
+        return [
+          <li
+            key="3"
+            style={{ margin: '0 10px' }}
+          >
+            {`Credits: ${auth.credits}`}
+          </li>,
+          <li key="1">
+            <Checkout
+              paymentName={'Survey'}
+              paymentDescription={'$5 for 5 email credits'}
+            />
+          </li>,
+          <li key="2"><Link to="/api/logout">Logout</Link></li>
+        ]
     }
   }
   render() {
