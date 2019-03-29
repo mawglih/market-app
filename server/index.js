@@ -6,10 +6,12 @@ const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
-require('./models/User');
-require('./services/passport');
 
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
+require('./models/User');
+require('./models/Survey');
+require('./services/passport');
+require('./routes/surveyRoutes');
 const app = express();
 
 app.use(bodyParser.json());
